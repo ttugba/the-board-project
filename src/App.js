@@ -1,21 +1,33 @@
 import React from 'react';
+import Navbar from "./components/Navbar";
+import { BrowserRouter, Route } from "react-router-dom";
+import Day from "./components/Day";
+import Week from "./components/Week";
+import Month from "./components/Month";
+import About from "./components/About"
+
+
+// import db from "./firebaseConfig";
 // import { connect } from "react-redux";
-import db from "./firebaseConfig";
-import Greet from "./components/greet";
-import Submit from "./components/submit";
-import planner from "./reducers/planner";
-import { addWeek, deleteWeek, addTask, deleteTask, mark } from "./reducers/action"
-
-
+// import Greet from "./components/Greet";
+// import planner from "./reducers/planner";
+// import { addWeek, deleteWeek, addTask, deleteTask, mark } from "./reducers/action"
 
 
 const App = () => {
 
   return (
-    <div className="App">
-      <Greet />
-      <Submit />
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Navbar />
+        <Route exact path="/" component={Day} />
+        <Route path="/week" component={Week} />
+        <Route path="/month" component={Month} />
+        <Route path="/about" component={About} />
+        
+        {/* <Greet /> */}
+      </div>
+    </BrowserRouter>
   );
 }
 
