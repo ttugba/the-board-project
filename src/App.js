@@ -1,26 +1,45 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+// import { connect } from "react-redux";
+import db from "./firebaseConfig";
+import Greet from "./components/greet";
+import Submit from "./components/submit";
+import planner from "./reducers/planner";
+import { addWeek, deleteWeek, addTask, deleteTask, mark } from "./reducers/action"
 
-function App() {
+
+
+
+const App = () => {
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Greet />
+      <Submit />
     </div>
   );
 }
+
+
+
+// async componentDidMount({
+//   const res = await db.collection("boards").doc("board").get()
+//   const data = res.data()
+//   this.setState({
+//     field1: data.field1,
+//   })
+//   console.log(this)
+// })
+
+// addList = e => {
+//   db.collection("lists").add({
+//     title: this.state.item,
+//     dueDate: this.state.dueDate
+//   })
+//   this.setState({
+//     item: "",
+//     dueDate: "",
+//   });
+// };
+
 
 export default App;
